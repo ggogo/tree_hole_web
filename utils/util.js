@@ -5,10 +5,14 @@ function formatTime(date) {
 
   var hour = date.getHours()
   var minute = date.getMinutes()
-  var second = date.getSeconds()
+  var second = date.getSeconds();
 
 
   return [year, month, day].map(formatNumber).join('/') + ' ' + [hour, minute, second].map(formatNumber).join(':')
+}
+
+function transLocalTime(t) {
+  return new Date(t * 1000);
 }
 
 function formatNumber(n) {
@@ -17,5 +21,6 @@ function formatNumber(n) {
 }
 
 module.exports = {
-  formatTime: formatTime
+  formatTime: formatTime,
+  transLocalTime: transLocalTime
 }
